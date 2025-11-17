@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card">
+    <h2>Losses</h2>
+    <a href="{{ url_for('losses_add') }}">Report loss</a>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Loss date</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.id }}</td>
+            <td>{{ row.item }}</td>
+            <td>{{ row.quantity }}</td>
+            <td>{{ row.loss_date }}</td>
+            <td>{{ row.reason }}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="5">No loss reports.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

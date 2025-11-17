@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card">
+    <h1>Restaurant Management Dashboard</h1>
+    <p>Use the links above to view or add entries for orders, purchases, Stage 2 production, and losses.</p>
+  </div>
+  <div class="card">
+    <h2>Quick Links</h2>
+    <ul>
+      <li><a href="{{ url_for('orders_add') }}">Add order</a></li>
+      <li><a href="{{ url_for('purchases_add') }}">Log purchase</a></li>
+      <li><a href="{{ url_for('stage2_add') }}">Track Stage 2 production</a></li>
+      <li><a href="{{ url_for('losses_add') }}">Report loss</a></li>
+    </ul>
+  </div>
+{% endblock %}

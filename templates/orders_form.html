@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card">
+    <h2>Add Order</h2>
+    <form method="post">
+      <label for="customer_name">Customer Name</label>
+      <input id="customer_name" name="customer_name" required>
+
+      <label for="item">Item</label>
+      <input id="item" name="item" required>
+
+      <label for="quantity">Quantity</label>
+      <input id="quantity" name="quantity" type="number" min="1" required>
+
+      <label for="status">Status</label>
+      <input id="status" name="status" placeholder="e.g. pending, in-progress" required>
+
+      <label for="order_date">Order Date</label>
+      <input id="order_date" name="order_date" type="date" required>
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+{% endblock %}

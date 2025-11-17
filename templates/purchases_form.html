@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card">
+    <h2>Log Purchase</h2>
+    <form method="post">
+      <label for="supplier">Supplier</label>
+      <input id="supplier" name="supplier" required>
+
+      <label for="item">Item</label>
+      <input id="item" name="item" required>
+
+      <label for="quantity">Quantity</label>
+      <input id="quantity" name="quantity" type="number" min="1" required>
+
+      <label for="unit_cost">Unit Cost</label>
+      <input id="unit_cost" name="unit_cost" type="number" step="0.01" min="0" required>
+
+      <label for="purchase_date">Purchase Date</label>
+      <input id="purchase_date" name="purchase_date" type="date" required>
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+{% endblock %}
