@@ -136,14 +136,12 @@ def register_sheet_routes(
     list_endpoint = f"{name}_list"
     add_endpoint = f"{name}_add"
 
-    @app.route(f"/{name}")
     def list_records():
         rows = fetch_callback(g.db)
         return render_template(list_template, rows=rows, name=name)
 
-    list_records.__name__ = list_endpoint
+    app.add_url_rule(f"/{name}", view_func=list_records, endpoint=list_endpoint)
 
-    @app.route(f"/{name}/add", methods=["GET", "POST"])
     def add_record():
         if request.method == "POST":
             payload = {field: request.form.get(field, "").strip() or None for field in form_fields}
@@ -159,7 +157,9 @@ def register_sheet_routes(
                 return redirect(url_for(list_endpoint))
         return render_template(f"{name}_form.html", name=name)
 
-    add_record.__name__ = add_endpoint
+    app.add_url_rule(
+        f"/{name}/add", view_func=add_record, methods=["GET", "POST"], endpoint=add_endpoint
+    )
 
 
 if __name__ == "__main__":
