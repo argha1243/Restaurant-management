@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card">
+    <h2>Report Loss</h2>
+    <form method="post">
+      <label for="item">Item</label>
+      <input id="item" name="item" required>
+
+      <label for="quantity">Quantity</label>
+      <input id="quantity" name="quantity" type="number" min="1" required>
+
+      <label for="loss_date">Loss Date</label>
+      <input id="loss_date" name="loss_date" type="date" required>
+
+      <label for="reason">Reason</label>
+      <textarea id="reason" name="reason" rows="3" required></textarea>
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+{% endblock %}

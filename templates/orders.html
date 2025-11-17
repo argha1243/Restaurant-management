@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card">
+    <h2>Orders</h2>
+    <a href="{{ url_for('orders_add') }}">Add new order</a>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer</th>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Status</th>
+          <th>Order date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.id }}</td>
+            <td>{{ row.customer_name }}</td>
+            <td>{{ row.item }}</td>
+            <td>{{ row.quantity }}</td>
+            <td>{{ row.status }}</td>
+            <td>{{ row.order_date }}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="6">No orders yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

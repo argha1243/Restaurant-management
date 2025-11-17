@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card">
+    <h2>Add Stage 2 Production Entry</h2>
+    <form method="post">
+      <label for="order_id">Order ID</label>
+      <input id="order_id" name="order_id" type="number" min="1" required>
+
+      <label for="station">Station</label>
+      <input id="station" name="station" required>
+
+      <label for="started_at">Started At</label>
+      <input id="started_at" name="started_at" type="datetime-local" required>
+
+      <label for="completed_at">Completed At</label>
+      <input id="completed_at" name="completed_at" type="datetime-local">
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="3"></textarea>
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+{% endblock %}
